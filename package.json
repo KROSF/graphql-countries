@@ -1,0 +1,71 @@
+{
+  "name": "@krosf/graphql-countries",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "description": "GraphQL countries server implemented with NestJS",
+  "private": true,
+  "author": {
+    "name": "Carlos Rodrigo Sanabria Flores",
+    "email": "rodrigosanabria22@opinno.com"
+  },
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "nest build",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main"
+  },
+  "dependencies": {
+    "@nestjs/common": "^6.10.14",
+    "@nestjs/core": "^6.10.14",
+    "@nestjs/graphql": "^6.5.3",
+    "@nestjs/platform-express": "^6.10.14",
+    "apollo-server-express": "^2.9.16",
+    "countries-list": "^2.5.0",
+    "graphql": "^14.5.8",
+    "graphql-tools": "^4.0.6",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^6.5.4",
+    "type-graphql": "^0.17.6"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.4",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@nestjs/cli": "^6.13.3",
+    "@nestjs/schematics": "^6.8.2",
+    "@typescript-eslint/eslint-plugin": "^2.15.0",
+    "@typescript-eslint/parser": "^2.15.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "husky": "^4.0.7",
+    "lint-staged": "^9.5.0",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.0",
+    "typescript": "^3.7.4"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.+(ts|tsx)": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.+(json|less|md|yml)": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
